@@ -1,0 +1,136 @@
+/*
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: #ffffff;
+	border-bottom: solid 1px rgba(160, 160, 160, 0.3);
+	padding: 20px 0;
+}
+
+
+#header a {
+	color: inherit;
+	text-decoration: none;
+}
+
+#header ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+#header ul li {
+	padding-left: 0;
+}
+#header h1 {
+	height: inherit;
+	line-height: inherit;
+	padding: 0 0 0 1.5em;
+	white-space: nowrap;
+}
+
+#header h1 a {
+	font-size: 0.7em;
+}
+
+#header .links {
+	-moz-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	margin: 0;
+	padding: 0;
+	flex: 1;
+	border-left: solid 1px rgba(160, 160, 160, 0.3);
+	line-height: inherit;
+	margin-left: 1.5em;
+	overflow: hidden;
+	padding-left: 1.5em;
+}
+
+#header .links ul {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#header .links ul li {
+	border-left: solid 1px rgba(160, 160, 160, 0.3);
+	line-height: 1;
+	margin-left: 1em;
+	padding-left: 1em;
+	border-bottom: 0;
+	font-family: 'Raleway', Helvetica, sans-serif;
+	font-size: 0.7em;
+	font-weight: 400;
+	letter-spacing: 0.25em;
+	text-transform: uppercase;
+}
+
+#header .links ul li:first-child {
+	border-left: 0;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+#header .links ul li:last-child {
+	border: solid 2px black;
+	padding: 1em;
+	transition: all 0.3s ease-in-out;
+	margin-right: auto;
+	float: right;
+}
+
+#header .links ul li:last-child:hover {
+	background: skyblue;
+} */
+
+.navbar-brand {
+	padding: 20px 40px 20px 30px;
+	border-right: solid 1px rgba(160, 160, 160, 0.3);
+}
+
+.navbar {
+	background: white;
+	border-bottom: solid 1px rgba(160, 160, 160, 0.3);
+}
+
+#dashboard {
+	border: solid 2px black;
+	transition: all 0.3s ease-in-out;
+	padding: 10px 20px;
+}
+
+#dashboard:hover {
+	background: skyblue;
+	color: white;
+}
+
+.nav-link {
+	border-left: solid 1px rgba(160, 160, 160, 0.3);
+	padding: 0;
+
+	font-family: 'Raleway', Helvetica, sans-serif;
+	font-size: 0.8em;
+	font-weight: 400;
+	letter-spacing: 0.25em;
+	text-transform: uppercase;
+}
+
+.nav1 {
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+#first {
+	border: none;
+}
