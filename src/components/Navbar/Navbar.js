@@ -63,11 +63,7 @@ const Navbar = () => {
 				</ul>
 				<ul class='navbar-nav'>
 					<li class='nav-item active mr-5'>
-						<Link
-							to='/dashboard'
-							class='nav-link'
-							id='dashboard'
-							href='#'>
+						<Link to='/dashboard' class='nav-link' id='dashboard'>
 							Dashboard
 						</Link>
 					</li>

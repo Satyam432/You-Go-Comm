@@ -104,17 +104,6 @@
 	border-bottom: solid 1px rgba(160, 160, 160, 0.3);
 }
 
-#dashboard {
-	border: solid 2px black;
-	transition: all 0.3s ease-in-out;
-	padding: 10px 20px;
-}
-
-#dashboard:hover {
-	background: skyblue;
-	color: white;
-}
-
 .nav-link {
 	border-left: solid 1px rgba(160, 160, 160, 0.3);
 	padding: 0;
@@ -133,4 +122,53 @@
 
 #first {
 	border: none;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+	#dashboard {
+		border-left: solid 1px rgba(160, 160, 160, 0.3);
+		padding: 0;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+	#dashboard {
+		border-left: solid 1px rgba(160, 160, 160, 0.3);
+		padding: 0;
+	}
+
+	#dashboard:hover {
+		background: skyblue;
+		color: white;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+	#dashboard {
+		border: solid 1px black;
+		transition: all 0.3s ease-in-out;
+		padding: 10px 20px;
+	}
+
+	#dashboard:hover {
+		background: skyblue;
+		color: white;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+	#dashboard {
+		border: solid 1px black;
+		transition: all 0.3s ease-in-out;
+		padding: 10px 20px;
+	}
+
+	#dashboard:hover {
+		background: skyblue;
+		color: white;
+	}
 }
