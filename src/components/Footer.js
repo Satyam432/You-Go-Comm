@@ -147,11 +147,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className='footer_bottom'>
-				<div className='container'>
-					<div className='row align-items-center'>
-						<h6>Made with ❤️ by YouGoComm</h6>
-					</div>
-				</div>
+				<p>Made with ❤️ by YouGoComm</p>
 			</div>
 		</footer>
 	);
