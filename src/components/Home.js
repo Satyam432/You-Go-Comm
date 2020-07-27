@@ -38,7 +38,7 @@ const Home = () => {
 							<InstagramEmbed
 								url='https://www.instagram.com/p/CCu2Yk-lQ7R/'
 								maxWidth='100%'
-								hideCaption={false}
+								hideCaption={true}
 								containerTagName='div'
 								protocol=''
 								injectScript

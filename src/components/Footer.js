@@ -127,7 +127,7 @@ const Footer = () => {
 									animationName: 'fadeInLeft'
 								}}>
 								<h3 className='f-title f_600 t_color f_size_18'>
-									Team Solutions
+									Social Media Links
 								</h3>
 								<div className='f_social_icon'>
 									<a href='#' className='fab fa-facebook'></a>
@@ -149,6 +149,12 @@ const Footer = () => {
 			<div className='footer_bottom'>
 				<p>Made with ❤️ by YouGoComm</p>
 			</div>
+		</footer>
+	);
+	return (
+		<footer className='footer'>
+			<div>Hello</div>
+			<div>Hello</div>
 		</footer>
 	);
 };

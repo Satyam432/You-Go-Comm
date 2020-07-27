@@ -3,7 +3,7 @@
 }
 
 .new_footer_top {
-	padding: 50px 0px 270px;
+	padding: 50px 0px 220px;
 	position: relative;
 	overflow-x: hidden;
 }
@@ -146,8 +146,7 @@ h6 {
 .new_footer_top .footer_bg {
 	position: absolute;
 	bottom: 0;
-	background: url('http://droitthemes.com/html/saasland/img/seo/footer_bg.png')
-		no-repeat scroll center 0;
+	background: url('./assets/images/footer_bg.png');
 	width: 100%;
 	height: 266px;
 }
@@ -204,3 +203,9 @@ h6 {
 		left: 100%;
 	}
 }
+
+/* .footer {
+	background: url('./assets/images/jerin-j-X5FDG7k5M94-unsplash.jpg');
+	color: white;
+	height: 200px;
+} */

@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
 	return (
-		<div>
+		<div style={{ overflow: 'hidden' }}>
 			<Router>
 				<Switch>
 					<Route path='/events' component={Events} />
