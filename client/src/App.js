@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Events from './components/Events';
 import Dashboard from './components/Dashboard/Dashboard';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 	return (

@@ -1,6 +1,10 @@
 import React from 'react';
 import './Carousel.css';
-import stock_image from './assets/images/nn.PNG';
+import { Modal, ModalHeader } from 'reactstrap';
+import ModalBody from 'reactstrap/lib/ModalBody';
+import ModalFooter from 'reactstrap/lib/ModalFooter';
+import Button from 'reactstrap/lib/Button';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 class Slide extends React.Component {
 	constructor(props) {
@@ -10,7 +14,15 @@ class Slide extends React.Component {
 		this.handleMouseLeave = this.handleMouseLeave.bind(this);
 		this.handleSlideClick = this.handleSlideClick.bind(this);
 		this.imageLoaded = this.imageLoaded.bind(this);
+		this.toggle = this.toggle.bind(this);
 		this.slide = React.createRef();
+		this.state = { modal: false };
+	}
+
+	toggle() {
+		this.setState({
+			modal: !this.state.modal
+		});
 	}
 
 	handleMouseMove(event) {
@@ -68,7 +80,44 @@ class Slide extends React.Component {
 				<article className='slide__content'>
 					<h2 className='slide__headline'>{headline}</h2>
 					{button && (
-						<button className='slide__action btn'>{button}</button>
+						<React.Fragment>
+							<button
+								className='slide__action btn'
+								onClick={this.toggle}>
+								{button}
+							</button>
+							<Modal
+								size='lg'
+								isOpen={this.state.modal}
+								toggle={this.toggle}>
+								<ModalHeader
+									toggle={this.toggle}
+									cssModule={{
+										'modal-title': 'w-100 text-center h2'
+									}}>
+									Stock Cooker
+								</ModalHeader>
+								<ModalBody
+									cssModule={{ 'modal-body': 'm-body' }}>
+									Lorem ipsum dolor sit amet, consectetur
+									adipisicing elit, sed do eiusmod tempor
+									incididunt ut labore et dolore magna aliqua.
+									Ut enim ad minim veniam, quis nostrud
+									exercitation ullamco laboris nisi ut aliquip
+									ex ea commodo consequat. Duis aute irure
+									dolor in reprehenderit in voluptate velit
+									esse cillum dolore eu fugiat nulla pariatur.
+									Excepteur sint occaecat cupidatat non
+									proident, sunt in culpa qui officia deserunt
+									mollit anim id est laborum.
+								</ModalBody>
+								<ModalFooter>
+									<button className='cards-button'>
+										<Link to='/'>Show Details</Link>
+									</button>
+								</ModalFooter>
+							</Modal>
+						</React.Fragment>
 					)}
 				</article>
 			</li>

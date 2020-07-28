@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 body {
-	background: url('components/assets/images/background.jpg');
+	background: url('assets/images/background.jpg');
 	object-fit: contain;
 	background-attachment: fixed;
 }
