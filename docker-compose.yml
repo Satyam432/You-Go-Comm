@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.7'
 
 services:
     ygc_client:
@@ -7,6 +7,8 @@ services:
             context: ./client
             dockerfile: Dockerfile
         container_name: ygc_client_container
+        environment:
+            - CHOKIDAR_USEPOLLING=true
         volumes:
             - ./client:/usr/src/app/client
             - /usr/src/app/client/node_modules
@@ -21,6 +23,8 @@ services:
             context: ./server
             dockerfile: Dockerfile
         container_name: ygc_server_container
+        environment:
+            - CHOKIDAR_USEPOLLING=true
         volumes:
             - ./server:/usr/src/app/server
             - /usr/src/app/server/node_modules
