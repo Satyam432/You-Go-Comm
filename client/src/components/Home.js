@@ -1,9 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar/Navbar';
-import Sidebar from './Sidebar';
 import ygc_logo from './assets/images/ygc-logo.png';
 import Card from './CardContainer';
-import stock_image from './assets/images/nn.PNG';
 import Footer from './Footer';
 import InstagramEmbed from 'react-instagram-embed';
 

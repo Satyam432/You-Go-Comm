@@ -1,5 +1,6 @@
 import React from 'react';
 import './Carousel.css';
+import stock_image from './assets/images/nn.PNG';
 
 class Slide extends React.Component {
 	constructor(props) {
@@ -66,7 +67,9 @@ class Slide extends React.Component {
 
 				<article className='slide__content'>
 					<h2 className='slide__headline'>{headline}</h2>
-					<button className='slide__action btn'>{button}</button>
+					{button && (
+						<button className='slide__action btn'>{button}</button>
+					)}
 				</article>
 			</li>
 		);
@@ -98,7 +101,46 @@ class Carousel extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { current: 0 };
+		this.state = {
+			current: 1,
+			slides: [
+				{
+					index: 0,
+					headline: '',
+					button: '',
+					src:
+						'https://image.freepik.com/free-vector/white-room-with-light-coming-soon-text_1017-5070.jpg'
+				},
+				{
+					index: 1,
+					headline: 'Stock Cooker',
+					button: 'Show Details',
+					src:
+						'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
+				},
+				{
+					index: 2,
+					headline: '',
+					button: '',
+					src:
+						'https://image.freepik.com/free-vector/white-room-with-light-coming-soon-text_1017-5070.jpg'
+				}
+				// {
+				// 	index: 2,
+				// 	headline: 'For Your Current Mood',
+				// 	button: 'Listen',
+				// 	src:
+				// 		'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg'
+				// },
+				// {
+				// 	index: 3,
+				// 	headline: 'Focus On The Writing',
+				// 	button: 'Get Focused',
+				// 	src:
+				// 		'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/typewriter.jpg'
+				// }
+			]
+		};
 		this.handlePreviousClick = this.handlePreviousClick.bind(this);
 		this.handleNextClick = this.handleNextClick.bind(this);
 		this.handleSlideClick = this.handleSlideClick.bind(this);
@@ -108,7 +150,7 @@ class Carousel extends React.Component {
 		const previous = this.state.current - 1;
 
 		this.setState({
-			current: previous < 0 ? this.props.slides.length - 1 : previous
+			current: previous < 0 ? this.state.slides.length - 1 : previous
 		});
 	}
 
@@ -116,7 +158,7 @@ class Carousel extends React.Component {
 		const next = this.state.current + 1;
 
 		this.setState({
-			current: next === this.props.slides.length ? 0 : next
+			current: next === this.state.slides.length ? 0 : next
 		});
 	}
 
@@ -129,8 +171,8 @@ class Carousel extends React.Component {
 	}
 
 	render() {
-		const { current, direction } = this.state;
-		const { slides, heading } = this.props;
+		const { current, slides } = this.state;
+		const { heading } = this.props;
 		const headingId = `slider-heading__${heading
 			.replace(/\s+/g, '-')
 			.toLowerCase()}`;

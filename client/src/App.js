@@ -2,13 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Events from './components/Events';
-import Footer from './components/Footer';
 import Dashboard from './components/Dashboard/Dashboard';
 import './App.css';
 
 function App() {
 	return (
-		<div style={{ overflow: 'hidden' }}>
+		<div>
 			<Router>
 				<Switch>
 					<Route path='/events' component={Events} />
