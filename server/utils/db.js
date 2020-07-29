@@ -1,6 +1,5 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 
-
 const sequelize = new Sequelize(
   process.env.DATABASE_NAME || 'yougocomm',
   process.env.DATABASE_USERNAME || 'postgres',
@@ -11,7 +10,6 @@ const sequelize = new Sequelize(
     dialect: 'postgres',
     define: {
       underscored: true,
-      schema: 'public',
     },
     timezone: '+05:30',
     dialectOptions: {
