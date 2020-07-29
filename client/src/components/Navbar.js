@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
 	return (
 		<nav className='navbar sticky-top navbar-expand-md navbar-light'>
-			<a className='navbar-brand' href='#'>
+			<a className='navbar-brand' href='/'>
 				YouGoComm
 			</a>
 			<button

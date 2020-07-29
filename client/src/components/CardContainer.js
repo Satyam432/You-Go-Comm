@@ -1,5 +1,5 @@
 import React from 'react';
-import stock_image from './assets/images/nn.PNG';
+import stock_image from '../assets/images/nn.PNG';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const CardContainer = () => {

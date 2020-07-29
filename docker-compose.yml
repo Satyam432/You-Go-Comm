@@ -59,7 +59,6 @@ services:
       - psql:/var/lib/postgresql/data
     ports:
       - '5432:5432'
-    
 
 networks:
   ygc_network:
