@@ -1,4 +1,4 @@
-const db = require('./models/db');
+const db = require('./utils/db');
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -7,6 +7,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 require('dotenv').config();
+const User = require('./models/auth/User');
 
 app.use(morgan('dev'));
 app.use(helmet());
@@ -50,7 +51,12 @@ app.use((err, req, res, next) => {
   console.log(err);
 });
 
-db.connect_db()
+db.sequelize
+  .sync({ force: true })
+  // .sync()
+  .then((result) => {
+    return db.connect_db();
+  })
   .then((result) => {
     app.listen(process.env.PORT || 5000, () => {
       console.log(`\n\nListening on Port ${process.env.PORT}`);
