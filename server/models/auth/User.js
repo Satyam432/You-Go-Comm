@@ -63,14 +63,4 @@ const User = sequelize.define(
   },
   { underscored: true }
 );
-User.create({
-  name: 'Setej',
-  college: 'vit',
-  degree: 'B.Tech',
-  dob: Sequelize.NOW,
-  city: 'Goa',
-  state: 'goa',
-  contact: '9998787458',
-  email: 'setej@bits.com',
-});
 module.exports = User;

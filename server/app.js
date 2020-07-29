@@ -7,7 +7,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 require('dotenv').config();
-const User = require('./models/auth/User');
+require('./middlewares/passport_google');
+
+const authRouter = require('./routes/auth');
 
 app.use(morgan('dev'));
 app.use(helmet());
@@ -40,6 +42,8 @@ app.use((req, res, next) => {
   }
 });
 
+app.use('/api/auth', authRouter);
+
 app.use('/', (req, res, next) => {
   res.status(200).send("Welcome to YouGoComm's backend :')");
 });
@@ -47,8 +51,8 @@ app.use('/', (req, res, next) => {
 app.use((err, req, res, next) => {
   const message = err.message || 'Server error';
   const status = err.status || 500;
+  console.log(err)
   return res.status(status).json({ success: false, message: message });
-  console.log(err);
 });
 
 db.sequelize

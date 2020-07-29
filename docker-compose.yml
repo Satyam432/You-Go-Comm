@@ -34,6 +34,10 @@ services:
       - DATABASE_PASSWORD=yougocomm123
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
+      - GOOGLE_CLIENT_ID=720927514645-19ci5f72p7o5kr8m06g74c2il8t8pumf.apps.googleusercontent.com
+      - GOOGLE_CLIENT_SECRET=DMCEgOqaeYOQrInfSO-vVu8E
+      - GOOGLE_CALLBACK_URL=http://localhost:5000/api/auth/google/callback
+      - FALLBACK_URL=http://localhost:3000/account-details/
     volumes:
       - ./server:/usr/src/app/server
       - /usr/src/app/server/node_modules
