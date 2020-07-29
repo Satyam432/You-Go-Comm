@@ -5,12 +5,7 @@ const passport = require('passport');
 router.get(
   '/google',
   passport.authenticate('google', {
-    scope: [
-      'profile',
-      'email',
-      'https://www.googleapis.com/auth/user.gender.read',
-      'https://www.googleapis.com/auth/user.birthday.read',
-    ],
+    scope: ['profile', 'email'],
     session: false,
   })
 );
