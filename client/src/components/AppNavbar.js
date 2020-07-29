@@ -50,7 +50,7 @@ const AppNavbar = () => {
 					</NavItem>
 					<NavItem active className='mr-5'>
 						<a
-							href='http://192.168.99.100:5000/api/auth/google/'
+							href='http://localhost:5000/api/auth/google/'
 							className='nav-link'
 							id='dashboard'>
 							Login

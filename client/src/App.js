@@ -15,7 +15,11 @@ function App() {
 					<Route path='/' exact component={Home} />
 					<Route path='/events' exact component={Events} />
 					<Route path='/dashboard' exact component={Dashboard} />
-					<Route path='/register' exact component={AccountDetails} />
+					<Route
+						path='/account-details'
+						exact
+						component={AccountDetails}
+					/>
 				</Switch>
 			</Router>
 		</div>
