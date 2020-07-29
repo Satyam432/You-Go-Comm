@@ -1,10 +1,7 @@
 import React from 'react';
 import './Carousel.css';
-import { Modal, ModalHeader } from 'reactstrap';
-import ModalBody from 'reactstrap/lib/ModalBody';
-import ModalFooter from 'reactstrap/lib/ModalFooter';
-import Button from 'reactstrap/lib/Button';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class Slide extends React.Component {
 	constructor(props) {

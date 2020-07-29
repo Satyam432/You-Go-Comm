@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './AppNavbar';
+import AppNavbar from './AppNavbar';
 import Footer from './Footer';
 import { Container, Row, Col } from 'reactstrap';
 import CardContainer from './CardContainer';
@@ -9,7 +9,7 @@ import InstaContainer from './InstaContainer';
 const Home = () => {
 	return (
 		<React.Fragment>
-			<Navbar />
+			<AppNavbar />
 			<Container fluid>
 				<Row>
 					<Col xs='12' md='3'>

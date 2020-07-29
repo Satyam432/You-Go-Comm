@@ -5,15 +5,17 @@ import Events from './components/Events';
 import Dashboard from './components/Dashboard/Dashboard';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AccountDetails from './components/AccountDetails';
 
 function App() {
 	return (
 		<div>
 			<Router>
 				<Switch>
-					<Route path='/events' component={Events} />
 					<Route path='/' exact component={Home} />
-					<Route path='/dashboard' component={Dashboard} />
+					<Route path='/events' exact component={Events} />
+					<Route path='/dashboard' exact component={Dashboard} />
+					<Route path='/register' exact component={AccountDetails} />
 				</Switch>
 			</Router>
 		</div>

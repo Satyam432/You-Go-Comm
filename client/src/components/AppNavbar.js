@@ -49,12 +49,12 @@ const AppNavbar = () => {
 						</Link>
 					</NavItem>
 					<NavItem active className='mr-5'>
-						<Link
-							to='/dashboard'
+						<a
+							href='http://192.168.99.100:5000/api/auth/google/'
 							className='nav-link'
 							id='dashboard'>
 							Login
-						</Link>
+						</a>
 					</NavItem>
 				</Nav>
 			</Collapse>
