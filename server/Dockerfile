@@ -1,4 +1,4 @@
-FROM node:10.19.0
+FROM node:14
 
 WORKDIR /usr/src/app/server
 
@@ -8,7 +8,7 @@ COPY . .
 
 EXPOSE 3000
 
-CMD [ "npm","run","start:prod" ]
+CMD [ "npm","run","start:dev" ]
 
 
 
