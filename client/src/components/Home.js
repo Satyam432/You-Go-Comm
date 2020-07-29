@@ -1,60 +1,29 @@
 import React from 'react';
-import Navbar from './Navbar';
-import ygc_logo from '../assets/images/ygc-logo.png';
-import Card from './CardContainer';
+import Navbar from './AppNavbar';
 import Footer from './Footer';
-import InstagramEmbed from 'react-instagram-embed';
+import { Container, Row, Col } from 'reactstrap';
+import CardContainer from './CardContainer';
+import LogoContainer from './LogoContainer';
+import InstaContainer from './InstaContainer';
 
 const Home = () => {
 	return (
 		<React.Fragment>
 			<Navbar />
-			<div className='row logo-container'>
-				<div className='col-12 col-md-3'>
-					<div className='logo-border'>
-						<div className='row'>
-							<div className='col-12'>
-								<img
-									src={ygc_logo}
-									alt=''
-									className='img-fluid'
-									id='ygc_logo'
-								/>
-							</div>
+			<Container fluid>
+				<Row>
+					<Col xs='12' md='3'>
+						<LogoContainer />
+						<InstaContainer />
+					</Col>
+					<Col xs='12' md='8' className='mx-auto'>
+						<div className='all_cards_container'>
+							<CardContainer />
+							<CardContainer />
 						</div>
-						<div className='row'>
-							<div className='col-12'>
-								<div id='logo-name'>YouGoComm</div>
-								<br />
-							</div>
-						</div>
-					</div>
-					<br />
-					<br />
-					<div className='row d-none d-md-block'>
-						<div className='col-12'>
-							<InstagramEmbed
-								url='https://www.instagram.com/p/CCu2Yk-lQ7R/'
-								maxWidth='100%'
-								hideCaption={true}
-								containerTagName='div'
-								protocol=''
-								injectScript
-								onLoading={() => {}}
-								onSuccess={() => {}}
-								onAfterRender={() => {}}
-								onFailure={() => {}}
-							/>
-						</div>
-					</div>
-				</div>
-
-				<div className='col-12 col-md-8 mx-auto'>
-					<Card />
-					<br /> <br />
-					<Card />
-				</div>
-			</div>
+					</Col>
+				</Row>
+			</Container>
 			<Footer />
 		</React.Fragment>
 	);

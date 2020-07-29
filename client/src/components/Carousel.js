@@ -175,14 +175,14 @@ class Carousel extends React.Component {
 						'https://image.freepik.com/free-vector/white-room-with-light-coming-soon-text_1017-5070.jpg'
 				}
 				// {
-				// 	index: 2,
+				// 	index: 3,
 				// 	headline: 'For Your Current Mood',
 				// 	button: 'Listen',
 				// 	src:
 				// 		'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/guitar.jpg'
 				// },
 				// {
-				// 	index: 3,
+				// 	index: 4,
 				// 	headline: 'Focus On The Writing',
 				// 	button: 'Get Focused',
 				// 	src:
