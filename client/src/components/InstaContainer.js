@@ -8,7 +8,7 @@ const InstaContainer = () => {
 			<Row className='mx-0'>
 				<Col xs='12' className='m-0 p-0'>
 					<InstagramEmbed
-						url='https://www.instagram.com/p/CCu2Yk-lQ7R/'
+						url='https://www.instagram.com/p/CC0jtTyHUgy/'
 						maxWidth='100%'
 						hideCaption={true}
 						containerTagName='div'
