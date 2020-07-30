@@ -35,11 +35,6 @@ const User = sequelize.define(
     contact: {
       type: Sequelize.STRING,
       allowNull: false,
-      
-    },
-    contact_whatsapp: {
-      type: Sequelize.STRING,
-      
     },
     email: {
       type: Sequelize.STRING,
