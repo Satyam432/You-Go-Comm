@@ -56,9 +56,9 @@ app.use((err, req, res, next) => {
 });
 
 db.sequelize
-  .sync({ force: true })
+  // .sync({ force: true })
   // .sync()
-  // .sync({ alter: true })
+  .sync({ alter: true })
   // .sync({benchmark:true,logging:false})
   .then((result) => {
     return db.connect_db();
