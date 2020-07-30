@@ -1,4 +1,4 @@
-const { sequelize, Sequelize } = require('../../utils/db');
+const { sequelize, Sequelize } = require('../../utils/database');
 const User = sequelize.define(
   'user',
   {
@@ -35,17 +35,6 @@ const User = sequelize.define(
     contact: {
       type: Sequelize.STRING,
       allowNull: false,
-      validate: {
-        isNumeric: true,
-        len: [0, 10],
-      },
-    },
-    contact_whatsapp: {
-      type: Sequelize.STRING,
-      validate: {
-        isNumeric: true,
-        len: [0, 10],
-      },
     },
     email: {
       type: Sequelize.STRING,
@@ -55,6 +44,12 @@ const User = sequelize.define(
       },
     },
     linkedin_profile: {
+      type: Sequelize.STRING,
+      validate: {
+        isUrl: true,
+      },
+    },
+    image_url: {
       type: Sequelize.STRING,
       validate: {
         isUrl: true,

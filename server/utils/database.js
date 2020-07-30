@@ -1,4 +1,4 @@
-const { Sequelize, Model, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = new Sequelize(
   process.env.DATABASE_NAME || 'yougocomm',
@@ -8,6 +8,7 @@ const sequelize = new Sequelize(
     host: process.env.DATABASE_HOST || 'db',
     port: process.env.DATABASE_PORT || 5432,
     dialect: 'postgres',
+    // logging:false,
     define: {
       underscored: true,
     },

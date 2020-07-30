@@ -1,4 +1,4 @@
-const db = require('./utils/db');
+const db = require('./models/db').sequelize;
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -51,13 +51,15 @@ app.use('/', (req, res, next) => {
 app.use((err, req, res, next) => {
   const message = err.message || 'Server error';
   const status = err.status || 500;
-  console.log(err)
+  console.log(err);
   return res.status(status).json({ success: false, message: message });
 });
 
 db.sequelize
-  .sync({ force: true })
+  // .sync({ force: true })
   // .sync()
+  .sync({ alter: true })
+  // .sync({benchmark:true,logging:false})
   .then((result) => {
     return db.connect_db();
   })
