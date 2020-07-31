@@ -58,7 +58,7 @@ exports.addDetails = async (req, res, next) => {
     if (!check_user) {
       throw new Error('Invalid user-id');
     }
-    await check_user.update(user);
+    check_user = await check_user.update(user);
     return res
       .status(200)
       .json({ success: true, message: 'Fields updated successfully' });

@@ -17,6 +17,11 @@ router.get(
   AuthController.authenticate
 );
 
+// /api/auth/current-user
+router.get('/current_user', (req, res, next) => {
+  return res.status(200).json({ success: true, user: req.user });
+});
+
 router.post('/add-details', AuthController.addDetails);
 
 module.exports = router;
