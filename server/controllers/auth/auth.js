@@ -31,10 +31,15 @@ exports.authenticate = async (req, res, next) => {
     // else Signup
     const user_ = await db.User.create({ email: user._json.email });
 
-    res.redirect(
-      process.env.FALLBACK_URL + `?id=${user_.user_id}` ||
-        `http://localhost:3000/account-details?id=${user_.user_id}`
-    );
+    return res
+      .status(200)
+      .cookie('user_id', user_.user_id, {
+        expires: new Date(Date.now() + 300000),
+        httpOnly: true,
+      })
+      .redirect(
+        process.env.FALLBACK_URL || `http://localhost:3000/account-details`
+      );
   } catch (err) {
     return next(err);
   }
