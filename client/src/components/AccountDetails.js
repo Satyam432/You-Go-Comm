@@ -184,12 +184,14 @@ const AccountDetails = () => {
 				user_id: undefined,
 				name: `${formFields.firstName} ${formFields.lastName}`,
 				dob: formFields.birthDate,
-				contact: formFields.mobile,
+				contact:
+					formFields.mobile !== '' ? formFields.mobile : undefined,
 				degree: formFields.course,
 				college: formFields.college,
 				city: formFields.city,
 				state: formFields.state,
-				linkedin_url: formFields.linkedIn
+				linkedin_url:
+					formFields.linkedIn !== '' ? formFields.linkedIn : undefined
 			};
 
 			axios

@@ -19,7 +19,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-import Chart from './Charts';
 import Deposits from './Deposits';
 import Orders from './Orders';
 import { Route } from 'react-router-dom';
