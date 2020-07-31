@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
 	return (
 		<footer className='new_footer_area bg_color'>
-			<div className='new_footer_top'>
+			{/* <div className='new_footer_top'>
 				<div className='container'>
 					<div className='row'>
 						<div className='col-lg-3 col-md-6'>
@@ -148,13 +148,7 @@ const Footer = () => {
 			</div>
 			<div className='footer_bottom'>
 				<p>Made with ❤️ by YouGoComm</p>
-			</div>
-		</footer>
-	);
-	return (
-		<footer className='footer'>
-			<div>Hello</div>
-			<div>Hello</div>
+			</div> */}
 		</footer>
 	);
 };

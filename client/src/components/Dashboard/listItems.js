@@ -49,7 +49,7 @@ export const mainListItems = (
 export const secondaryListItems = (
 	<div>
 		<ListSubheader inset>Saved reports</ListSubheader>
-		<Link to='/dashboard/home'>
+		<Link to='/dashboard/stock-cooker'>
 			<ListItem button>
 				<ListItemIcon>
 					<AssignmentIcon />

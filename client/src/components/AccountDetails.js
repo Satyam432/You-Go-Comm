@@ -10,9 +10,9 @@ import {
 	createMuiTheme,
 	MuiThemeProvider
 } from '@material-ui/core/styles';
-import TradingViewWidget, { Themes } from 'react-tradingview-widget';
-
+import axios from 'axios';
 import './AccountDetails.css';
+import { Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -74,6 +74,8 @@ const AccountDetails = () => {
 		stateError: '',
 		linkedInError: ''
 	});
+
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
 	const changeHandler = (e) => {
 		setFormFields({
@@ -144,7 +146,7 @@ const AccountDetails = () => {
 			stateError,
 			linkedInError
 		});
-		console.log(fieldErrors);
+
 		return isError;
 	};
 
@@ -177,8 +179,36 @@ const AccountDetails = () => {
 				stateError: '',
 				linkedInError: ''
 			});
+
+			const postData = {
+				user_id: undefined,
+				name: `${formFields.firstName} ${formFields.lastName}`,
+				dob: formFields.birthDate,
+				contact: formFields.mobile,
+				degree: formFields.course,
+				college: formFields.college,
+				city: formFields.city,
+				state: formFields.state,
+				linkedin_url: formFields.linkedIn
+			};
+
+			axios
+				.post(
+					'http://192.168.99.100:5000/api/auth/add-details',
+					postData
+				)
+				.then((res) => {
+					console.log(res);
+					localStorage.setItem('response', res.data.message);
+					setIsAuthenticated(true);
+				})
+				.catch((err) => console.log(err));
 		}
 	};
+
+	if (isAuthenticated) {
+		return <Redirect to='/' />;
+	}
 
 	return (
 		<React.Fragment>
@@ -428,12 +458,6 @@ const AccountDetails = () => {
 							</form>
 						</MuiThemeProvider>
 					</Col>
-					{/* <Col xs='12'>
-						<TradingViewWidget
-							symbol='NASDAQ:AAPL'
-							theme={Themes.DARK}
-						/>
-					</Col> */}
 				</Row>
 			</Container>
 			<Footer />

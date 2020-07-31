@@ -17,7 +17,10 @@ const CardContainer = () => {
 						className='card_heading_details'>
 						15-Aug, 2020
 						<div>
-							<img src='https://cdn1.iconfinder.com/data/icons/material-device/20/access-time-16.png' />
+							<img
+								src='https://cdn1.iconfinder.com/data/icons/material-device/20/access-time-16.png'
+								alt='clock icon'
+							/>
 							<small className='cards-time'> 7:00 PM</small>
 						</div>
 					</Col>
@@ -28,7 +31,7 @@ const CardContainer = () => {
 					<Col xs='11' md='10' className='mx-auto'>
 						<img
 							src={stock_image}
-							alt=''
+							alt='StockCookerImg'
 							className='img-fluid card_body_image'
 						/>
 					</Col>

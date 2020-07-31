@@ -22,21 +22,21 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Charts';
 import Deposits from './Deposits';
 import Orders from './Orders';
-import Home from '../Home';
 import { Route } from 'react-router-dom';
+import StockCooker from '../StockCooker';
 
-function Copyright() {
-	return (
-		<Typography variant='body2' color='textSecondary' align='center'>
-			{'Copyright © '}
-			<Link color='inherit' href='https://material-ui.com/'>
-				Your Website
-			</Link>{' '}
-			{new Date().getFullYear()}
-			{'.'}
-		</Typography>
-	);
-}
+// function Copyright() {
+// 	return (
+// 		<Typography variant='body2' color='textSecondary' align='center'>
+// 			{'Copyright © '}
+// 			<Link color='inherit' href='https://material-ui.com/'>
+// 				Your Website
+// 			</Link>{' '}
+// 			{new Date().getFullYear()}
+// 			{'.'}
+// 		</Typography>
+// 	);
+// }
 
 const drawerWidth = 240;
 
@@ -119,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-export default function Dashboard() {
+const Dashboard = () => {
 	const classes = useStyles();
 	const [open, setOpen] = React.useState(true);
 	const handleDrawerOpen = () => {
@@ -128,11 +128,11 @@ export default function Dashboard() {
 	const handleDrawerClose = () => {
 		setOpen(false);
 	};
-	const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+	// const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
 	return (
 		<div className={classes.root}>
-			<CssBaseline />
+			{/* <CssBaseline /> */}
 			<AppBar
 				position='absolute'
 				className={clsx(classes.appBar, open && classes.appBarShift)}>
@@ -185,7 +185,11 @@ export default function Dashboard() {
 			<main className={classes.content}>
 				<div className={classes.appBarSpacer} />
 				<Container maxWidth='lg' className={classes.container}>
-					<Route path='/dashboard/home' exact component={Home} />
+					<Route
+						path='/dashboard/stock-cooker'
+						exact
+						component={StockCooker}
+					/>
 					{/* <Grid container spacing={3}>
 						<Grid item xs={12} md={8} lg={9}>
 							<Paper className={fixedHeightPaper}>
@@ -210,4 +214,6 @@ export default function Dashboard() {
 			</main>
 		</div>
 	);
-}
+};
+
+export default Dashboard;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 import ygc_logo from '../assets/images/ygc-logo.png';
-import InstagramEmbed from 'react-instagram-embed';
 
 const LogoContainer = () => {
 	return (
