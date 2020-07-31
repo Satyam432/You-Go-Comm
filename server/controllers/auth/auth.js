@@ -11,11 +11,21 @@ exports.authenticate = async (req, res, next) => {
     // Login
     if (user_check) {
       const token = jwt.sign(
-        {},
+        {
+          id: user_check.user_id,
+          email: user_check.email,
+          name: user_check.name,
+        },
         process.env.JWT_SECRET || 'yougocomm123321mmocoguoy',
         { expiresIn: '1h' }
       );
-      return res.status(200).json({ success: true, token: token });
+      return res
+        .status(200)
+        .cookie('token', token, {
+          expires: new Date(Date.now() + 3600000),
+          httpOnly: true,
+        })
+        .redirect('http://localhost:3000/');
     }
 
     // else Signup
