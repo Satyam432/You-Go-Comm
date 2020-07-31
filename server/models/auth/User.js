@@ -10,31 +10,24 @@ const User = sequelize.define(
     },
     name: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
     college: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
     degree: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
     dob: {
       type: Sequelize.DATEONLY,
-      allowNull: false,
     },
     city: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
     state: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
     contact: {
       type: Sequelize.STRING,
-      allowNull: false,
     },
     email: {
       type: Sequelize.STRING,

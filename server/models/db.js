@@ -19,21 +19,21 @@ db.User.belongsToMany(db.Event, {
   onUpdate: 'CASCADE',
 });
 
-Promise.all([
-  db.User.create({
-    name: faker.name.findName(),
-    email: faker.internet.email(),
-    college: 'BITS',
-    state: faker.address.state(),
-    city: faker.address.city(),
-    degree: 'B.Tech',
-    dob: faker.date.past(),
-    contact: faker.phone.phoneNumber(),
-    image_url: faker.internet.url(),
-  }),
-  db.Event.create({
-    name: faker.commerce.productName(),
-  }),
-]);
+// Promise.all([
+//   db.User.create({
+//     name: faker.name.findName(),
+//     email: faker.internet.email(),
+//     college: 'BITS',
+//     state: faker.address.state(),
+//     city: faker.address.city(),
+//     degree: 'B.Tech',
+//     dob: faker.date.past(),
+//     contact: faker.phone.phoneNumber(),
+//     image_url: faker.internet.url(),
+//   }),
+//   db.Event.create({
+//     name: faker.commerce.productName(),
+//   }),
+// ]);
 
 module.exports = db;

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const AuthController = require('../controllers/auth/auth');
 
 router.get(
   '/google',
@@ -13,11 +14,9 @@ router.get(
 router.get(
   '/google/callback',
   passport.authenticate('google', { session: false }),
-  (req, res, next) => {
-    res.redirect(
-      process.env.FALLBACK_URL || 'http://localhost:3000/account-details'
-    );
-  }
+  AuthController.authenticate
 );
+
+router.post('/add-details', AuthController.addDetails);
 
 module.exports = router;

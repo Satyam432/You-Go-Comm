@@ -56,9 +56,9 @@ app.use((err, req, res, next) => {
 });
 
 db.sequelize
-  // .sync({ force: true })
-  // .sync()
-  .sync({ alter: true })
+  // .sync({ force: true }) // use to erase all data and recreate and also add/delte columns
+  .sync() // use to persist data
+  // .sync({ alter: true }) // use to persist data  and/or add or remove columns
   // .sync({benchmark:true,logging:false})
   .then((result) => {
     return db.connect_db();
