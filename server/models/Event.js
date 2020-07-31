@@ -1,4 +1,4 @@
-const { sequelize, Sequelize } = require('../utils/database');
+const { sequelize, Sequelize } = require('../config/database');
 
 const Event = sequelize.define('event', {
   event_id: {

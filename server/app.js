@@ -9,6 +9,7 @@ const passport = require('passport');
 require('dotenv').config();
 require('./middlewares/passport_google');
 
+const errorHandler = require('./middlewares/error_handler');
 const authRouter = require('./routes/auth');
 
 app.use(morgan('dev'));
@@ -44,16 +45,8 @@ app.use((req, res, next) => {
 
 app.use('/api/auth', authRouter);
 
-app.use('/', (req, res, next) => {
-  res.status(200).send("Welcome to YouGoComm's backend :')");
-});
-
-app.use((err, req, res, next) => {
-  const message = err.message || 'Server error';
-  const status = err.status || 500;
-  console.log(err);
-  return res.status(status).json({ success: false, message: message });
-});
+app.use('/', errorHandler.handle404);
+app.use(errorHandler.handle);
 
 db.sequelize
   // .sync({ force: true }) // use to erase all data and recreate and also add/delte columns

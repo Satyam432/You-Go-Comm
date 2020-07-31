@@ -4,7 +4,7 @@ const Promise = require('bluebird');
 
 const db = {};
 
-db.sequelize = require('../utils/database'); // contains sequelize, Sequelize, connect_db
+db.sequelize = require('../config/database'); // contains sequelize, Sequelize, connect_db
 db.Sequelize = Sequelize;
 db.Op = Sequelize.Op;
 
