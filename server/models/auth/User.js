@@ -36,11 +36,8 @@ const User = sequelize.define(
         isEmail: true,
       },
     },
-    linkedin_profile: {
+    linkedin_url: {
       type: Sequelize.STRING,
-      validate: {
-        isUrl: true,
-      },
     },
     image_url: {
       type: Sequelize.STRING,

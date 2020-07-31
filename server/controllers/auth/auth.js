@@ -54,13 +54,11 @@ exports.addDetails = async (req, res, next) => {
       state,
       linkedin_url,
     };
-    const check_user = await db.User.update(
-      { user },
-      { where: { user_id: user_id } }
-    );
+    let check_user = await db.User.findOne({ where: { user_id: user_id } });
     if (!check_user) {
-      throw new Error('Error in updating fields');
+      throw new Error('Invalid user-id');
     }
+    await check_user.update(user);
     return res
       .status(200)
       .json({ success: true, message: 'Fields updated successfully' });
