@@ -1,5 +1,16 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const passport = require('passport');
+const db = require('../models/db');
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+  let user = await db.User.findOne({ where: { user_id: id } }, { raw: true });
+  // user = { id: user.user_id, email: user.email, type: null };
+  done(null, user);
+});
 
 passport.use(
   new GoogleStrategy(
@@ -13,8 +24,31 @@ passport.use(
         process.env.GOOGLE_CALLBACK_URL ||
         'http://localhost:5000/api/auth/google/callback',
     },
-    function (accessToken, refreshToken, profile, done) {
-      done(null, profile);
+    async (accessToken, refreshToken, profile, done) => {
+      let user = await db.User.findOne({
+        where: {
+          email: profile._json.email,
+        },
+        raw: true,
+      });
+      if (user) {
+        return done(null, {
+          id: user.user_id,
+          email: user.email,
+          type: 'LOGIN',
+        });
+      }
+      user = await db.User.create(
+        { email: profile._json.email },
+        { raw: true }
+      );
+      if (user) {
+        return done(null, {
+          id: user.user_id,
+          email: user.email,
+          type: 'SIGNUP',
+        });
+      }
     }
   )
 );

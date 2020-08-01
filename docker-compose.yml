@@ -39,6 +39,8 @@ services:
       - GOOGLE_CALLBACK_URL=http://localhost:5000/api/auth/google/callback
       - FALLBACK_URL=http://localhost:3000/account-details
       - JWT_SECRET=yougocomm123321mmocoguoy
+      - HOST_CLIENT_ADD=http://localhost:3000/
+      - HOST_SERVER_ADD=http://localhost:5000/
     volumes:
       - ./server:/usr/src/app/server
       - /usr/src/app/server/node_modules

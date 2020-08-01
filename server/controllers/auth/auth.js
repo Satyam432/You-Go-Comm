@@ -4,42 +4,13 @@ const jwt = require('jsonwebtoken');
 exports.authenticate = async (req, res, next) => {
   try {
     const { user } = req;
-    const user_check = await db.User.findOne({
-      where: { email: user._json.email },
-    });
 
-    // Login
-    if (user_check) {
-      const token = jwt.sign(
-        {
-          id: user_check.user_id,
-          email: user_check.email,
-          name: user_check.name,
-        },
-        process.env.JWT_SECRET || 'yougocomm123321mmocoguoy',
-        { expiresIn: '1h' }
-      );
-      return res
-        .status(200)
-        .cookie('token', token, {
-          expires: new Date(Date.now() + 3600000),
-          httpOnly: true,
-        })
-        .redirect('http://localhost:3000/');
+    if (user.type === 'SIGNUP') {
+      return res.redirect(`${process.env.HOST_CLIENT_ADD}account-details`);
+    } else if (user.type === 'LOGIN') {
+      return res.redirect(`${process.env.HOST_CLIENT_ADD}`);
     }
-
-    // else Signup
-    const user_ = await db.User.create({ email: user._json.email });
-
-    return res
-      .status(200)
-      .cookie('user_id', user_.user_id, {
-        expires: new Date(Date.now() + 300000),
-        httpOnly: true,
-      })
-      .redirect(
-        process.env.FALLBACK_URL || `http://localhost:3000/account-details`
-      );
+    throw new Error('Passport error');
   } catch (err) {
     return next(err);
   }

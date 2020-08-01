@@ -7,17 +7,17 @@ router.get(
   '/google',
   passport.authenticate('google', {
     scope: ['profile', 'email'],
-    session: false,
   })
 );
 
 router.get(
   '/google/callback',
-  passport.authenticate('google', { session: false }),
+  passport.authenticate('google'),
   AuthController.authenticate
 );
 
 router.get('/current-user', (req, res, next) => {
+  console.log('USER OBJ', req.user);
   return res.status(200).json({ success: true, user: req.user });
 });
 

@@ -6,5 +6,5 @@ exports.handle = (err, req, res, next) => {
 };
 
 exports.handle404 = (req, res, next) => {
-  res.status(404).send("Welcome to YouGoComm's backend :')");
+  res.status(201).send("Welcome to YouGoComm's backend :')");
 };

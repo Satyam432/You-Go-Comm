@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const app = express();
 const cors = require('cors');
+const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 require('dotenv').config();
@@ -15,7 +16,14 @@ const authRouter = require('./routes/auth');
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors());
+app.use(
+  cookieSession({
+    maxAge: 1 * 60 * 60 * 1000,
+    keys: ['yougocomm123321yougocomm'],
+  })
+);
 app.use(passport.initialize());
+app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
