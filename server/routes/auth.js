@@ -21,6 +21,11 @@ router.get('/current-user', (req, res, next) => {
   return res.status(200).json({ success: true, user: req.user });
 });
 
+router.get('/logout', (req, res, next) => {
+  req.logout();
+  res.redirect(`${process.env.HOST_CLIENT_ADD}`);
+});
+
 router.post('/add-details', AuthController.addDetails);
 
 module.exports = router;
