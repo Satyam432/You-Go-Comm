@@ -13,7 +13,7 @@ import axios from 'axios';
 const App = () => {
 	useEffect(() => {
 		axios
-			.get('http://192.168.99.100:5000/api/auth/current-user')
+			.get('http://localhost:5000/api/auth/current-user')
 			.then((res) => console.log(res))
 			.catch((err) => console.log(err));
 	});
