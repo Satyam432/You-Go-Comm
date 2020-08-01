@@ -17,8 +17,12 @@ router.get(
 );
 
 router.get('/current-user', (req, res, next) => {
-  console.log('USER OBJ', req.user);
-  return res.status(200).json({ success: true, user: req.user });
+  if (req.user) {
+    return res.status(200).json({ success: true, user: req.user });
+  }
+  return res
+    .status(401)
+    .json({ success: false, user: 'Logged out/ Not logged in' });
 });
 
 router.get('/logout', (req, res, next) => {
