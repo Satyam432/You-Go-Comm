@@ -17,7 +17,8 @@ import { Redirect } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		'& .MuiTextField-root': {
-			margin: theme.spacing(1),
+			marginTop: theme.spacing(1),
+			marginButtom: theme.spacing(1),
 			width: '100%'
 		}
 	},
@@ -201,7 +202,6 @@ const AccountDetails = () => {
 				)
 				.then((res) => {
 					console.log(res);
-					localStorage.setItem('response', res.data.message);
 					setIsAuthenticated(true);
 				})
 				.catch((err) => console.log(err));

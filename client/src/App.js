@@ -8,15 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AccountDetails from './components/AccountDetails';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import axios from 'axios';
 
 const App = () => {
-	useEffect(() => {
-		axios
-			.get('http://192.168.99.100:5000/api/auth/current-user')
-			.then((res) => console.log(res))
-			.catch((err) => console.log(err));
-	});
 	return (
 		<Provider store={store}>
 			<div>

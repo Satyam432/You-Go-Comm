@@ -1,112 +1,114 @@
 /* Main body */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 body {
-	background: url('assets/images/background.jpg');
-	object-fit: contain;
-	background-attachment: fixed;
+    /* background: url('https://images.unsplash.com/photo-1478198697312-304b0bd9475f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80'); */
+    /* background: url('https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80'); */
+    background: url('assets/images/background.jpg');
+    object-fit: contain;
+    background-attachment: fixed;
 }
 
 /* LOGO */
 
 .logo_container {
-	background: rgba(255, 255, 255, 0.95);
-	margin: 50px 0 0 0;
-	border-radius: 10px 0;
+    background: rgba(255, 255, 255, 0.95);
+    margin: 50px 0 0 0;
+    border-radius: 10px 0;
 }
 
 #logo_name {
-	color: #3c3b3b;
-	font-size: 2em;
-	font-weight: bold;
-	font-family: 'Merriweather', serif;
+    color: #3c3b3b;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Merriweather', serif;
 }
 
 #logo_img {
-	width: 100%;
+    width: 100%;
 }
 
 /* INSTA EMBED */
 
 .insta_container {
-	background: transparent;
-	margin: 50px 0 0 0;
+    background: transparent;
+    margin: 50px 0 0 0;
 }
 
 /* HOME PAGE CARDS */
 
 .all_cards_container {
-	margin: 50px 10px 0 10px;
+    margin: 50px 10px 0 10px;
 }
 
 .card_container {
-	background: rgba(255, 255, 255, 0.95);
-	border-radius: 10px 0;
-	margin-bottom: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px 0;
+    margin-bottom: 50px;
 }
 
 .card_heading {
-	border-bottom: solid 1px rgba(160, 160, 160, 0.3);
+    border-bottom: solid 1px rgba(160, 160, 160, 0.3);
 }
 
 .card_heading_name {
-	font-weight: bold;
-	font-size: 35px;
-	font-family: 'Merriweather', serif;
-	color: #3c3b3b;
-	text-align: center;
-	padding: 20px 0 20px 0;
+    font-weight: bold;
+    font-size: 35px;
+    font-family: 'Merriweather', serif;
+    color: #3c3b3b;
+    text-align: center;
+    padding: 20px 0 20px 0;
 }
 
 @media only screen and (min-width: 992px) {
-	.card_heading_name {
-		text-align: right;
-	}
+    .card_heading_name {
+        text-align: right;
+    }
 }
 
 .card_heading_details {
-	text-align: center;
-	padding: 20px 0;
+    text-align: center;
+    padding: 20px 0;
 }
 
 .card_body {
-	text-align: center;
+    text-align: center;
 }
 
 .card_body_image {
-	width: 95%;
-	margin: 30px 0;
+    width: 95%;
+    margin: 30px 0;
 }
 
 .card_body_btn {
-	border: solid 1px black;
-	border-radius: 3px;
-	padding: 10px 20px;
-	background: #f2f3f4;
-	transition: all 0.2s ease-in-out;
-	margin: 0 0 20px 0;
+    border: solid 1px black;
+    border-radius: 3px;
+    padding: 10px 20px;
+    background: #f2f3f4;
+    transition: all 0.2s ease-in-out;
+    margin: 0 0 20px 0;
 }
 
 .card_body_btn a {
-	text-decoration: none;
-	color: #3c3b3b;
+    text-decoration: none;
+    color: #3c3b3b;
 }
 
 .card_body_btn a:hover {
-	text-decoration: none;
-	color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .card_body_btn:hover {
-	background: white;
-	color: black;
+    background: white;
+    color: black;
 }
 
 .sidebar-card {
-	background: white;
-	padding: 0;
-	border-radius: 10px;
+    background: white;
+    padding: 0;
+    border-radius: 10px;
 }

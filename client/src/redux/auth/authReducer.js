@@ -1,11 +1,14 @@
 import { GET_USER } from './authTypes';
 
-const initialState = {};
+const initialState = {
+	isAuthenticated: false,
+	user: {}
+};
 
 const authReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
 		case GET_USER:
-			return { ...state, ...payload };
+			return { ...state, isAuthenticated: true, user: payload };
 
 		default:
 			return state;
