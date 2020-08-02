@@ -10,24 +10,24 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 
 const App = () => {
-	return (
-		<Provider store={store}>
-			<div>
-				<Router>
-					<Switch>
-						<Route path='/' exact component={Home} />
-						<Route path='/events' exact component={Events} />
-						<Route path='/dashboard' component={Dashboard} />
-						<Route
-							path='/account-details'
-							exact
-							component={AccountDetails}
-						/>
-					</Switch>
-				</Router>
-			</div>
-		</Provider>
-	);
+    return (
+        <Provider store={store}>
+            <div>
+                <Router>
+                    <Switch>
+                        <Route path='/' exact component={Home} />
+                        <Route path='/events' exact component={Events} />
+                        <Route path='/dashboard' component={Dashboard} />
+                        <Route
+                            path='/account-details'
+                            exact
+                            component={AccountDetails}
+                        />
+                    </Switch>
+                </Router>
+            </div>
+        </Provider>
+    );
 };
 
 export default App;

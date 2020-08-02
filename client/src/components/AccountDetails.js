@@ -197,7 +197,7 @@ const AccountDetails = () => {
 
 			axios
 				.post(
-					'http://192.168.99.100:5000/api/auth/add-details',
+					'http://localhost:5000/api/auth/add-details',
 					postData
 				)
 				.then((res) => {

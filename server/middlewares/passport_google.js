@@ -25,6 +25,7 @@ passport.use(
         'http://localhost:5000/api/auth/google/callback',
     },
     async (accessToken, refreshToken, profile, done) => {
+      console.log(profile);
       let user = await db.User.findOne({
         where: {
           email: profile._json.email,
@@ -39,7 +40,7 @@ passport.use(
         });
       }
       user = await db.User.create(
-        { email: profile._json.email },
+        { email: profile._json.email, image_url: profile._json.picture },
         { raw: true }
       );
       if (user) {
