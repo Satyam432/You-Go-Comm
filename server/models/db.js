@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-const faker = require('faker');
-const Promise = require('bluebird');
+// const faker = require('faker');
+// const Promise = require('bluebird');
 
 const db = {};
 
