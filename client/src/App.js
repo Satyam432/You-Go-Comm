@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AccountDetails from './components/AccountDetails';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-
 const App = () => {
     return (
         <Provider store={store}>
@@ -16,11 +15,10 @@ const App = () => {
                 <Router>
                     <Switch>
                         <Route path='/' exact component={Home} />
-                        <Route path='/events' exact component={Events} />
+                        <Route path='/events' component={Events} />
                         <Route path='/dashboard' component={Dashboard} />
                         <Route
                             path='/account-details'
-                            exact
                             component={AccountDetails}
                         />
                     </Switch>

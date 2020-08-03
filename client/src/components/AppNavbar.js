@@ -9,9 +9,12 @@ import {
     Nav,
     NavItem
 } from 'reactstrap';
+import { useSelector } from 'react-redux';
+import { USER_LOGOUT, GOOGLE_LOGIN } from '../variables';
 
 const AppNavbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
     const toggle = () => {
         setIsOpen((prevIsOpen) => !prevIsOpen);
@@ -43,19 +46,28 @@ const AppNavbar = () => {
                     <Nav navbar className='ml-auto'>
                         <NavItem active className='mr-5'>
                             <Link
-                                to='/dashboard'
+                                to='/account-details'
                                 className='btn nav-link'
                                 id='dashboard'>
                                 Dashboard
                             </Link>
                         </NavItem>
                         <NavItem active className='mr-5'>
-                            <a
-                                href='http://yougocomm.com:5000/api/auth/google/'
-                                className='btn nav-link'
-                                id='dashboard'>
-                                Login
-                            </a>
+                            {isAuthenticated ? (
+                                <a
+                                    href={USER_LOGOUT}
+                                    className='nav-link btn'
+                                    id='dashboard'>
+                                    Logout
+                                </a>
+                            ) : (
+                                <a
+                                    href={GOOGLE_LOGIN}
+                                    className='nav-link btn'
+                                    id='dashboard'>
+                                    Login
+                                </a>
+                            )}
                         </NavItem>
                     </Nav>
                 </Collapse>
@@ -81,16 +93,24 @@ const AppNavbar = () => {
                             </Link>
                         </NavItem>
                         <NavItem active className='nav1'>
-                            <Link to='/dashboard' className='nav-link pl-4'>
+                            <Link
+                                to='/account-details'
+                                className='nav-link pl-4'>
                                 Dashboard
                             </Link>
                         </NavItem>
                         <NavItem active className='nav1'>
-                            <a
-                                href='http://yougocomm.com:3000/api/auth/google/'
-                                className='nav-link pl-4'>
-                                Login
-                            </a>
+                            {isAuthenticated ? (
+                                <a href={USER_LOGOUT} className='nav-link pl-4'>
+                                    Logout
+                                </a>
+                            ) : (
+                                <a
+                                    href={GOOGLE_LOGIN}
+                                    className='nav-link pl-4'>
+                                    Login
+                                </a>
+                            )}
                         </NavItem>
                     </Nav>
                 </Collapse>

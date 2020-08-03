@@ -6,18 +6,46 @@ import CardContainer from './CardContainer';
 import LogoContainer from './LogoContainer';
 import InstaContainer from './InstaContainer';
 import axios from 'axios';
+import {
+    getUser,
+    getUserFailed,
+    incompleteUserDetails
+} from '../redux/auth/authActionCreator';
+import { useDispatch } from 'react-redux';
+import { CURRENT_USER } from '../variables';
+import { Redirect } from 'react-router-dom';
 
 const Home = () => {
-    // useEffect(() => {
-    //     axios
-    //         .get('http://ygc-server:5000/api/auth/current-user')
-    //         .then((res) => {
-    //             console.log(res);
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // });
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const getUserId = async () => {
+            try {
+                const user = await axios.get(CURRENT_USER, {
+                    withCredentials: true
+                });
+                console.log(user);
+
+                if (user.data.success) {
+                    dispatch(
+                        getUser(
+                            user.data.user.user_id,
+                            user.data.user.image_url
+                        )
+                    );
+                    if (user.data.user.name === null) {
+                        dispatch(incompleteUserDetails());
+                    }
+                } else {
+                    dispatch(getUserFailed());
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        getUserId();
+    }, [dispatch]);
 
     return (
         <React.Fragment>
@@ -26,7 +54,7 @@ const Home = () => {
                 <Row>
                     <Col xs='12' md='3'>
                         <LogoContainer />
-                        <InstaContainer />
+                        {/* <InstaContainer /> */}
                     </Col>
                     <Col xs='12' md='8' className='mx-auto'>
                         <div className='all_cards_container'>
