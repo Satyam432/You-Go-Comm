@@ -15,7 +15,7 @@ const authRouter = require('./routes/auth');
 
 app.use(morgan('dev'));
 app.use(helmet());
-app.use(cors());
+app.use(cors({credentials:true,origin:[process.env.HOST_CLIENT_ADD]}));
 app.use(
   cookieSession({
     maxAge: 1 * 60 * 60 * 1000,
@@ -27,29 +27,7 @@ app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  ); // cors header
-  if (req.method == 'OPTIONS') {
-    res.header(
-      'Access-Control-Allow-Methods',
-      'GET, POST, OPTIONS, PUT, DELETE, HEAD'
-    );
-    res.header('Access-Control-Max-Age', '1728000');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header(
-      'Access-Control-Allow-Headers',
-      'Origin,Content-Type,Accept,Authorization, X-AUTH-TOKEN'
-    );
-    res.header('Content-Length', '0');
-    res.sendStatus(208);
-  } else {
-    next();
-  }
-});
+
 
 app.use('/api/auth', authRouter);
 
