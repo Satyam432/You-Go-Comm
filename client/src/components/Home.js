@@ -8,16 +8,16 @@ import InstaContainer from './InstaContainer';
 import axios from 'axios';
 
 const Home = () => {
-    useEffect(() => {
-        axios
-            .get('http://ygc-server:5000/api/auth/current-user')
-            .then((res) => {
-                console.log(res);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    });
+    // useEffect(() => {
+    //     axios
+    //         .get('http://ygc-server:5000/api/auth/current-user')
+    //         .then((res) => {
+    //             console.log(res);
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         });
+    // });
 
     return (
         <React.Fragment>

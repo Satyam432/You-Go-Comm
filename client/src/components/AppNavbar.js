@@ -51,7 +51,7 @@ const AppNavbar = () => {
                         </NavItem>
                         <NavItem active className='mr-5'>
                             <a
-                                href='/api/auth/google/'
+                                href='http://yougocomm.com:5000/api/auth/google/'
                                 className='btn nav-link'
                                 id='dashboard'>
                                 Login
@@ -87,7 +87,7 @@ const AppNavbar = () => {
                         </NavItem>
                         <NavItem active className='nav1'>
                             <a
-                                href='http://192.168.99.100:3000/api/auth/google/'
+                                href='http://yougocomm.com:3000/api/auth/google/'
                                 className='nav-link pl-4'>
                                 Login
                             </a>
