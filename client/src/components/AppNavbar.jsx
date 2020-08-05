@@ -10,7 +10,7 @@ import {
     NavItem
 } from 'reactstrap';
 import { useSelector } from 'react-redux';
-import { USER_LOGOUT, GOOGLE_LOGIN } from '../variables';
+import { HOST } from '../variables';
 
 const AppNavbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -55,14 +55,14 @@ const AppNavbar = () => {
                         <NavItem active className='mr-5'>
                             {isAuthenticated ? (
                                 <a
-                                    href={USER_LOGOUT}
+                                    href={`${HOST}/api/auth/logout/`}
                                     className='nav-link btn'
                                     id='dashboard'>
                                     Logout
                                 </a>
                             ) : (
                                 <a
-                                    href={GOOGLE_LOGIN}
+                                    href={`${HOST}/api/auth/google/`}
                                     className='nav-link btn'
                                     id='dashboard'>
                                     Login
@@ -101,12 +101,14 @@ const AppNavbar = () => {
                         </NavItem>
                         <NavItem active className='nav1'>
                             {isAuthenticated ? (
-                                <a href={USER_LOGOUT} className='nav-link pl-4'>
+                                <a
+                                    href={`${HOST}/api/auth/logout/`}
+                                    className='nav-link pl-4'>
                                     Logout
                                 </a>
                             ) : (
                                 <a
-                                    href={GOOGLE_LOGIN}
+                                    href={`${HOST}/api/auth/google/`}
                                     className='nav-link pl-4'>
                                     Login
                                 </a>

@@ -18,7 +18,7 @@ import {
     getUserFailed,
     completedUserDetails
 } from '../redux/auth/authActionCreator';
-import { ADD_DETAILS, CURRENT_USER } from '../variables';
+import { HOST } from '../variables';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -61,7 +61,7 @@ const AccountDetails = () => {
     useEffect(() => {
         const getUserId = async () => {
             try {
-                const user = await axios.get(CURRENT_USER, {
+                const user = await axios.get(`${HOST}/api/auth/current-user/`, {
                     withCredentials: true
                 });
                 console.log(user);
@@ -244,7 +244,7 @@ const AccountDetails = () => {
             };
 
             axios
-                .post(ADD_DETAILS, postData)
+                .post(`${HOST}/api/auth/add-details`, postData)
                 .then((res) => {
                     console.log(res);
                     dispatch(completedUserDetails());

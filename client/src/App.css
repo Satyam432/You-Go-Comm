@@ -8,14 +8,32 @@ body {
     /* background: url('https://images.unsplash.com/photo-1478198697312-304b0bd9475f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80'); */
     background: url('https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80');
     /* background: url('assets/images/background.jpg'); */
+    /* background: linear-gradient(
+            0deg,
+            rgba(255, 210, 217, 0.4),
+            rgba(255, 210, 217, 0.4)
+        ),
+        url('https://img.as-creation.com/s0/4708294.jpg'); */
     object-fit: cover;
     background-attachment: fixed;
 }
 
+/* ::-webkit-scrollbar {
+    width: 0.75em;
+}
+
+::-webkit-scrollbar-track {
+    background: blue;
+}
+
+::-webkit-scrollbar-thumb {
+    background: yellow;
+} */
+
 /* LOGO */
 
 .logo_container {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.97);
     margin: 50px 0 0 0;
     border-radius: 10px 0;
 }
@@ -45,7 +63,7 @@ body {
 }
 
 .card_container {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.97);
     border-radius: 10px 0;
     margin-bottom: 50px;
 }

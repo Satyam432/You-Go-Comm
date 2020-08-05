@@ -12,7 +12,7 @@ import {
     incompleteUserDetails
 } from '../redux/auth/authActionCreator';
 import { useDispatch } from 'react-redux';
-import { CURRENT_USER } from '../variables';
+import { HOST } from '../variables';
 import { Redirect } from 'react-router-dom';
 
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
     useEffect(() => {
         const getUserId = async () => {
             try {
-                const user = await axios.get(CURRENT_USER, {
+                const user = await axios.get(`${HOST}/api/auth/current-user/`, {
                     withCredentials: true
                 });
                 console.log(user);
