@@ -12,15 +12,16 @@ require('./middlewares/passport_google');
 
 const errorHandler = require('./middlewares/error_handler');
 const authRouter = require('./routes/auth');
+const userRouter = require('./routes/user');
 
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors({ credentials: true, origin: [process.env.HOST_ORIGIN] }));
 app.use(
-    cookieSession({
-        maxAge: 1 * 60 * 60 * 1000,
-        keys: ['yougocomm123321yougocomm']
-    })
+  cookieSession({
+    maxAge: 1 * 60 * 60 * 1000,
+    keys: ['yougocomm123321yougocomm'],
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -28,23 +29,24 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/auth', authRouter);
+app.use('/api/user', userRouter);
 
 app.use('/', errorHandler.handle404);
 app.use(errorHandler.handle);
 
 db.sequelize
-    // .sync({ force: true }) // use to erase all data and recreate and also add/delte columns
-    .sync() // use to persist data
-    // .sync({ alter: true }) // use to persist data  and/or add or remove columns
-    // .sync({benchmark:true,logging:false})
-    .then((result) => {
-        return db.connect_db();
-    })
-    .then((result) => {
-        app.listen(process.env.PORT || 5000, () => {
-            console.log(`\n\nListening on Port ${process.env.PORT}`);
-        });
-    })
-    .catch((err) => {
-        console.log(err);
+//   .sync({ force: true }) // use to erase all data and recreate and also add/delte columns
+//   .sync() // use to persist data
+  .sync({ alter: true }) // use to persist data  and/or add or remove columns
+  // .sync({benchmark:true,logging:false})
+  .then((result) => {
+    return db.connect_db();
+  })
+  .then((result) => {
+    app.listen(process.env.PORT || 5000, () => {
+      console.log(`\n\nListening on Port ${process.env.PORT}`);
     });
+  })
+  .catch((err) => {
+    console.log(err);
+  });

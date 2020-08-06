@@ -7,22 +7,25 @@ db.Sequelize = Sequelize;
 db.Op = Sequelize.Op;
 
 // Adding Models
-db.User = require('./auth/User');
+db.User = require('./user/User');
+db.Friend = require('./user/Friend');
 db.Event = require('./Event');
 
 // Add Relations/ Associations
 db.User.belongsToMany(db.User, {
-  as: 'Follower',
-  through: 'friends',
+  as: 'followers',
+  through: db.Friend,
   foreignKey: 'follower_id',
+  otherKey: 'following_id',
   onDelete: 'CASCADE',
   onUpdate: 'CASCADE',
 });
 
 db.User.belongsToMany(db.User, {
-  as: 'Following',
-  through: 'friends',
+  as: 'following',
+  through: db.Friend,
   foreignKey: 'following_id',
+  otherKey: 'follower_id',
   onDelete: 'CASCADE',
   onUpdate: 'CASCADE',
 });
