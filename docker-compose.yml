@@ -1,83 +1,83 @@
 version: '3.7'
 
 services:
-    client:
-        stdin_open: true
-        build:
-            context: ./client
-            dockerfile: Dockerfile
-        container_name: ygc-client
-        environment:
-            - CHOKIDAR_USEPOLLING=true
-        volumes:
-            - ./client:/usr/src/app/client
-            - /usr/src/app/client/node_modules
-        ports:
-            - '3000:3000'
-        restart: always
-        networks:
-            - ygc-network
-        depends_on:
-            - server
-            - db
+  client:
+    stdin_open: true
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: ygc-client
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./client:/usr/src/app/client
+      - /usr/src/app/client/node_modules
+    ports:
+      - '3000:3000'
+    restart: always
+    networks:
+      - ygc-network
+    depends_on:
+      - server
+      - db
 
-    server:
-        build:
-            context: ./server
-            dockerfile: Dockerfile
-        container_name: ygc-server
-        environment:
-            - CHOKIDAR_USEPOLLING=true
-            - PORT=5000
-            - DATABASE_NAME=yougocomm
-            - DATABASE_USERNAME=postgres
-            - DATABASE_PASSWORD=yougocomm123
-            - DATABASE_HOST=db
-            - DATABASE_PORT=5432
-            - GOOGLE_CLIENT_ID=720927514645-19ci5f72p7o5kr8m06g74c2il8t8pumf.apps.googleusercontent.com
-            - GOOGLE_CLIENT_SECRET=DMCEgOqaeYOQrInfSO-vVu8E
-            # - GOOGLE_CALLBACK_URL=http://localhost:5000/api/auth/google/callback
-            # - FALLBACK_URL=http://localhost:3000/account-details
-            # - JWT_SECRET=yougocomm123321mmocoguoy
-            # - HOST_CLIENT_ADD=http://localhost:3000/
-            # - HOST_SERVER_ADD=http://localhost:5000/
-            # - HOST_ORIGIN=http://localhost:3000
-            - GOOGLE_CALLBACK_URL=http://yougocomm.com:5000/api/auth/google/callback
-            - FALLBACK_URL=http://yougocomm.com:3000/account-details
-            - JWT_SECRET=yougocomm123321mmocoguoy
-            - HOST_CLIENT_ADD=http://yougocomm.com:3000/
-            - HOST_SERVER_ADD=http://yougocomm.com:5000/
-            - HOST_ORIGIN=http://yougocomm.com:3000
-        volumes:
-            - ./server:/usr/src/app/server
-            - /usr/src/app/server/node_modules
-        ports:
-            - '5000:5000'
-        networks:
-            - ygc-network
-        depends_on:
-            - db
-        restart: always
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: ygc-server
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - PORT=5000
+      - DATABASE_NAME=yougocomm
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=yougocomm123
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - GOOGLE_CLIENT_ID=720927514645-19ci5f72p7o5kr8m06g74c2il8t8pumf.apps.googleusercontent.com
+      - GOOGLE_CLIENT_SECRET=DMCEgOqaeYOQrInfSO-vVu8E
+      - GOOGLE_CALLBACK_URL=http://localhost:5000/api/auth/google/callback
+      - FALLBACK_URL=http://localhost:3000/account-details
+      - JWT_SECRET=yougocomm123321mmocoguoy
+      - HOST_CLIENT_ADD=http://localhost:3000/
+      - HOST_SERVER_ADD=http://localhost:5000/
+      - HOST_ORIGIN=http://localhost:3000
+      # - GOOGLE_CALLBACK_URL=http://yougocomm.com:5000/api/auth/google/callback
+      # - FALLBACK_URL=http://yougocomm.com:3000/account-details
+      # - JWT_SECRET=yougocomm123321mmocoguoy
+      # - HOST_CLIENT_ADD=http://yougocomm.com:3000/
+      # - HOST_SERVER_ADD=http://yougocomm.com:5000/
+      # - HOST_ORIGIN=http://yougocomm.com:3000
+    volumes:
+      - ./server:/usr/src/app/server
+      - /usr/src/app/server/node_modules
+    ports:
+      - '5000:5000'
+    networks:
+      - ygc-network
+    depends_on:
+      - db
+    restart: always
 
-    db:
-        image: postgres:12.3
-        container_name: ygc-db
-        restart: always
-        environment:
-            - POSTGRES_PASSWORD=yougocomm123
-            - POSTGRES_USER=postgres
-            - POSTGRES_DB=yougocomm
-        networks:
-            - ygc-network
-        volumes:
-            - psql:/var/lib/postgresql/data
-        ports:
-            - '5432:5432'
+  db:
+    image: postgres:12.3
+    container_name: ygc-db
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=yougocomm123
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=yougocomm
+    networks:
+      - ygc-network
+    volumes:
+      - psql:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
 
 networks:
-    ygc-network:
-        driver: bridge
-        name: ygc-network
+  ygc-network:
+    driver: bridge
+    name: ygc-network
 
 volumes:
-    psql:
+  psql:

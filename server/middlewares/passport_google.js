@@ -7,9 +7,13 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-  let user = await db.User.findOne({ where: { user_id: id } }, { raw: true });
-  // user = { id: user.user_id, email: user.email, type: null };
-  done(null, user);
+  try {
+    let user = await db.User.findOne({ where: { user_id: id } }, { raw: true });
+    // user = { id: user.user_id, email: user.email, type: null };
+    done(null, user.get({ plain: true }));
+  } catch (error) {
+    done(new Error('User not found'));
+  }
 });
 
 passport.use(
