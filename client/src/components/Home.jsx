@@ -4,7 +4,6 @@ import Footer from './Footer';
 import { Container, Row, Col } from 'reactstrap';
 import CardContainer from './CardContainer';
 import LogoContainer from './LogoContainer';
-import InstaContainer from './InstaContainer';
 import axios from 'axios';
 import {
     getUser,
@@ -13,7 +12,6 @@ import {
 } from '../redux/auth/authActionCreator';
 import { useDispatch } from 'react-redux';
 import { HOST } from '../variables';
-import { Redirect } from 'react-router-dom';
 
 const Home = () => {
     const dispatch = useDispatch();

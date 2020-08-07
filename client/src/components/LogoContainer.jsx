@@ -4,9 +4,7 @@ import ygc_logo from '../assets/images/ygc-logo.png';
 
 const LogoContainer = () => {
     return (
-        <div
-            className='logo_container ml-md-4'
-            style={{ border: 'solid 1px black' }}>
+        <div className='logo_container ml-md-4'>
             <Row>
                 <Col xs='auto' className='m-auto'>
                     <img

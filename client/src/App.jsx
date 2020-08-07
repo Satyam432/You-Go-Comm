@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AccountDetails from './components/AccountDetails';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import Dashboard from './components/Dashboard/Dashboard';
+import Paperbase from './components/Paperbase/Paperbase';
 const App = () => {
     return (
         <Provider store={store}>
@@ -16,7 +16,7 @@ const App = () => {
                     <Switch>
                         <Route path='/' exact component={Home} />
                         <Route path='/events' component={Events} />
-                        <Route path='/dashboard' component={Dashboard} />
+                        <Route path='/dashboard' component={Paperbase} />
                         <Route
                             path='/account-details'
                             component={AccountDetails}

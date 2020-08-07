@@ -46,7 +46,7 @@ const AppNavbar = () => {
                     <Nav navbar className='ml-auto'>
                         <NavItem active className='mr-5'>
                             <Link
-                                to='/account-details'
+                                to='/dashboard'
                                 className='btn nav-link'
                                 id='dashboard'>
                                 Dashboard
@@ -93,9 +93,7 @@ const AppNavbar = () => {
                             </Link>
                         </NavItem>
                         <NavItem active className='nav1'>
-                            <Link
-                                to='/account-details'
-                                className='nav-link pl-4'>
+                            <Link to='/dashboard' className='nav-link pl-4'>
                                 Dashboard
                             </Link>
                         </NavItem>

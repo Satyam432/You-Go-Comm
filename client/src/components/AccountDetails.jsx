@@ -100,7 +100,7 @@ const AccountDetails = () => {
         };
 
         getUserId();
-    }, [dispatch]);
+    });
 
     const [formFields, setFormFields] = useState({
         firstName: '',
