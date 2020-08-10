@@ -59,6 +59,14 @@ const AppNavbar = () => {
 							</Link>
 						</NavItem>
 						<NavItem active className='mr-5'>
+							<Link
+								to='/account-details'
+								className='btn nav-link'
+								id='dashboard'>
+								Acc. Details
+							</Link>
+						</NavItem>
+						<NavItem active className='mr-5'>
 							{isAuthenticated ? (
 								<a
 									href={`${HOST}/api/auth/logout/`}
@@ -101,6 +109,11 @@ const AppNavbar = () => {
 						<NavItem active className='nav1'>
 							<Link to='/dashboard' className='nav-link pl-4'>
 								Dashboard
+							</Link>
+						</NavItem>
+						<NavItem active className='nav1'>
+							<Link to='/account-details' className='nav-link pl-4'>
+								Acc. Details
 							</Link>
 						</NavItem>
 						<NavItem active className='nav1'>
