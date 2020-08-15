@@ -48,45 +48,45 @@ function Header(props) {
 
 	return (
 		<React.Fragment>
-			<AppBar
-				color='secondary'
-				position='sticky'
-				elevation={0}
-				className={classes.secondaryBar}>
-				<Toolbar>
-					<Grid container spacing={1} alignItems='center'>
-						<Hidden smUp>
-							<Grid item>
-								<IconButton
-									color='inherit'
-									aria-label='open drawer'
-									onClick={onDrawerToggle}
-									className={classes.menuButton}>
-									<MenuIcon />
-								</IconButton>
-							</Grid>
-						</Hidden>
-						<Grid item xs />
-						<Grid item>
-							<Link className={classes.link} href='#' variant='body2'>
-								Go to docs
-							</Link>
-						</Grid>
-						<Grid item>
-							<Tooltip title='Alerts • No alerts'>
-								<IconButton color='inherit'>
-									<NotificationsIcon />
-								</IconButton>
-							</Tooltip>
-						</Grid>
-						<Grid item>
-							<IconButton color='inherit' className={classes.iconButtonAvatar}>
-								<Avatar src='/static/images/avatar/1.jpg' alt='My Avatar' />
-							</IconButton>
-						</Grid>
-					</Grid>
-				</Toolbar>
-			</AppBar>
+			{/*<AppBar*/}
+			{/*	color='secondary'*/}
+			{/*	position='sticky'*/}
+			{/*	elevation={0}*/}
+			{/*	className={classes.secondaryBar}>*/}
+			{/*	/!*<Toolbar>*!/*/}
+			{/*	/!*	<Grid container spacing={1} alignItems='center'>*!/*/}
+			{/*	/!*		<Hidden smUp>*!/*/}
+			{/*	/!*			/!*<Grid item>*!/*!/*/}
+			{/*	/!*			/!*	<IconButton*!/*!/*/}
+			{/*	/!*			/!*		color='inherit'*!/*!/*/}
+			{/*	/!*			/!*		aria-label='open drawer'*!/*!/*/}
+			{/*	/!*			/!*		onClick={onDrawerToggle}*!/*!/*/}
+			{/*	/!*			/!*		className={classes.menuButton}>*!/*!/*/}
+			{/*	/!*			/!*		<MenuIcon />*!/*!/*/}
+			{/*	/!*			/!*	</IconButton>*!/*!/*/}
+			{/*	/!*			/!*</Grid>*!/*!/*/}
+			{/*	/!*		</Hidden>*!/*/}
+			{/*	/!*		<Grid item xs />*!/*/}
+			{/*	/!*		/!*<Grid item>*!/*!/*/}
+			{/*	/!*		/!*	<Link className={classes.link} href='#' variant='body2'>*!/*!/*/}
+			{/*	/!*		/!*		Go to docs*!/*!/*/}
+			{/*	/!*		/!*	</Link>*!/*!/*/}
+			{/*	/!*		/!*</Grid>*!/*!/*/}
+			{/*	/!*		/!*<Grid item>*!/*!/*/}
+			{/*	/!*		/!*	<Tooltip title='Alerts • No alerts'>*!/*!/*/}
+			{/*	/!*		/!*		<IconButton color='inherit'>*!/*!/*/}
+			{/*	/!*		/!*			<NotificationsIcon />*!/*!/*/}
+			{/*	/!*		/!*		</IconButton>*!/*!/*/}
+			{/*	/!*		/!*	</Tooltip>*!/*!/*/}
+			{/*	/!*		/!*</Grid>*!/*!/*/}
+			{/*	/!*		/!*<Grid item>*!/*!/*/}
+			{/*	/!*		/!*	<IconButton color='inherit' className={classes.iconButtonAvatar}>*!/*!/*/}
+			{/*	/!*		/!*		<Avatar src='/static/images/avatar/1.jpg' alt='My Avatar' />*!/*!/*/}
+			{/*	/!*		/!*	</IconButton>*!/*!/*/}
+			{/*	/!*		/!*</Grid>*!/*!/*/}
+			{/*	/!*	</Grid>*!/*/}
+			{/*	/!*</Toolbar>*!/*/}
+			{/*</AppBar>*/}
 			<AppBar
 				component='div'
 				className={classes.secondaryBar}
@@ -97,25 +97,30 @@ function Header(props) {
 					<Grid container alignItems='center' spacing={1}>
 						<Grid item xs>
 							<Typography color='inherit' variant='h5' component='h1'>
-								Authentication
+								{props.heading}                                                {/*here is here u write the name */}
 							</Typography>
 						</Grid>
 						<Grid item>
-							<Button
-								className={classes.button}
-								variant='outlined'
-								color='inherit'
-								size='small'>
-								Web setup
-							</Button>
+							<IconButton color='inherit' className={classes.iconButtonAvatar}>
+								<Avatar src='/static/images/avatar/1.jpg' alt='My Avatar' />
+							</IconButton>
 						</Grid>
-						<Grid item>
-							<Tooltip title='Help'>
-								<IconButton color='inherit'>
-									<HelpIcon />
-								</IconButton>
-							</Tooltip>
-						</Grid>
+						{/*<Grid item>*/}
+						{/*	<Button*/}
+						{/*		className={classes.button}*/}
+						{/*		variant='outlined'*/}
+						{/*		color='inherit'*/}
+						{/*		size='small'>*/}
+						{/*		Web setup*/}
+						{/*	</Button>*/}
+						{/*</Grid>*/}
+						{/*<Grid item>*/}
+						{/*	<Tooltip title='Help'>*/}
+						{/*		<IconButton color='inherit'>*/}
+						{/*			<HelpIcon />*/}
+						{/*		</IconButton>*/}
+						{/*	</Tooltip>*/}
+						{/*</Grid>*/}
 					</Grid>
 				</Toolbar>
 			</AppBar>
@@ -126,10 +131,10 @@ function Header(props) {
 				position='static'
 				elevation={0}>
 				<Tabs value={0} textColor='inherit'>
-					<Tab textColor='inherit' label='Users' />
-					<Tab textColor='inherit' label='Sign-in method' />
-					<Tab textColor='inherit' label='Templates' />
-					<Tab textColor='inherit' label='Usage' />
+					<Tab textColor='inherit' label={props.tabnames.tabone} />
+					<Tab textColor='inherit' label={props.tabnames.tabtwo} />
+					<Tab textColor='inherit' label={props.tabnames.tabthree} />
+					<Tab textColor='inherit' label={props.tabnames.tabfour} />
 				</Tabs>
 			</AppBar>
 		</React.Fragment>

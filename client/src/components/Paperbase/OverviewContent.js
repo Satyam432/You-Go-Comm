@@ -12,6 +12,7 @@ import { withStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import RefreshIcon from "@material-ui/icons/Refresh";
 
+
 const styles = (theme) => ({
 	paper: {
 		maxWidth: 936,
@@ -39,6 +40,7 @@ function Content(props) {
 	const { classes } = props;
 
 	return (
+		<div >
 		<Paper className={classes.paper}>
 			<AppBar
 				className={classes.searchBar}
@@ -82,6 +84,7 @@ function Content(props) {
 				</Typography>
 			</div>
 		</Paper>
+		</div>
 	);
 }
 

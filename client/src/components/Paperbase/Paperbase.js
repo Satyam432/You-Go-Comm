@@ -7,11 +7,11 @@ import {
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 import Navigator from './Navigator';
-import Content from './OverviewContent';
 import Header from './Header';
 import { Switch, Route } from 'react-router-dom';
 import OverviewContent from './OverviewContent';
-
+import BlogPostContent from "./BlogPostContent";
+import BlogPostWrite from "./BlogTemplate/BlogPostWrite";
 // function Copyright() {
 //     return (
 //         <Typography variant='body2' color='textSecondary' align='center'>
@@ -190,14 +190,46 @@ function Paperbase(props) {
 					</Hidden>
 				</nav>
 				<div className={classes.app}>
-					<Header onDrawerToggle={handleDrawerToggle} />
-
+					<Switch>
+						<Route
+							path='/dashboard/overview'
+							exact
+							component={()=><Header onDrawerToggle={handleDrawerToggle} tabnames={{tabone:"Tab1",tabtwo:"Tab2",tabthree:"Tab3",tabfour:"Tab4",tabfive:"Tab5"}} heading="heading" />
+							}
+						/>
+						<Route
+							path='/dashboard/blog-posts'
+							exact
+							component={()=><Header onDrawerToggle={handleDrawerToggle} tabnames={{tabone:"Tab1",tabtwo:"Tab2",tabthree:"Tab3",tabfour:"Tab4",tabfive:"Tab5"}} heading="heading" />
+							}
+						/>
+						<Route
+							path='/dashboard/blog-posts/write'
+							exact
+							component={()=><Header onDrawerToggle={handleDrawerToggle} tabnames={{tabone:"Tab1",tabtwo:"Tab2",tabthree:"Tab3",tabfour:"Tab4",tabfive:"Tab5"}} heading="heading" />
+							}
+						/>
+					</Switch>
 					<main className={classes.main}>
 						<Switch>
 							<Route
 								path='/dashboard/overview'
 								exact
 								component={OverviewContent}
+							/>
+						</Switch>
+						<Switch>
+							<Route
+								path='/dashboard/blog-posts'
+								exact
+								component={BlogPostContent}
+							/>
+						</Switch>
+						<Switch>
+							<Route
+								path='/dashboard/blog-posts/write'
+								exact
+								component={BlogPostWrite}
 							/>
 						</Switch>
 					</main>
