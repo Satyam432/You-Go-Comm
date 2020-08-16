@@ -1,7 +1,7 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
-import Blog from "./BlogTemplate/Blog";
+import Blog from "./BlogComponents/Blog";
 
 
 const styles = (theme) => ({

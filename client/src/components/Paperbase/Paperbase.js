@@ -11,7 +11,7 @@ import Header from './Header';
 import { Switch, Route } from 'react-router-dom';
 import OverviewContent from './OverviewContent';
 import BlogPostContent from "./BlogPostContent";
-import BlogPostWrite from "./BlogTemplate/BlogPostWrite";
+import BlogPostWrite from "./BlogComponents/BlogPostWrite";
 // function Copyright() {
 //     return (
 //         <Typography variant='body2' color='textSecondary' align='center'>
